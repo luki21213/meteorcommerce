@@ -1,16 +1,5 @@
-Template.productBox.events({
-	'click .product-box': function() {
-		Router.go('productDetail', {
-			productId: this._id
-		});
-	},
-	'click a.thumbnail': function(e) {
-		e.preventDefault();
-	}
-});
-
-Template.productBox.helpers({
-	categoryName: function() {
+Template.productDetail.helpers({
+	categoryName: function () {
 		var cat = Categories.findOne({
 			_id: this.category
 		});

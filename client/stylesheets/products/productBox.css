@@ -1,6 +1,7 @@
 .product-box {
 	display: inline-block;
 	margin-bottom: 30px;
+	cursor: pointer;
 }
 .product-name {
 	font-weight: 500;
