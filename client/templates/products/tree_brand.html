@@ -4,23 +4,15 @@
             {{tree}}
             <ul>
                 <li class="jstree-open" data-jstree='{"opened":true,"selected":true}'>
-                    Products
+                    Categories
                     <ul>
-                        <li data-jstree='{"disabled":true}'>Brand1
-                        <ul>
-                            <li>
-                                Product1
-                            </li>
-                        </ul></li>
-                        <li data-jstree='{"icon":"http://jstree.com/tree.png"}'>
-                            Brand2
-                        </li>
-                        <li data-jstree='{"icon":"glyphicon glyphicon-leaf"}'>
-                            Brand3
-                        </li>
+                        {{#each categories}}
+                        <li>{{title}}</li>
+                        {{/each}}
                     </ul>
                 </li>
             </ul>
         </div>
     </nav>
 </template>
+
