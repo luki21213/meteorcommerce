@@ -4,7 +4,7 @@ var maxProductQuantity = 20;
 var categorySize = 20;
 Meteor.startup(function() {
     if (Categories.find().count() === 0) { 
-        for(var i=0;i<brandSize;i++){
+        for(var i=0;i<categorySize;i++){
            Categories.insert({
             title: "Category"+i
         });

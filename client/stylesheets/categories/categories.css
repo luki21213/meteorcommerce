@@ -1,0 +1,15 @@
+/*Angepasst an Guidelines von Google's Material Design*/
+/*http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button */
+.category-list-item{
+	cursor: pointer;
+}
+
+.category-list-item:hover{
+	background-color: #999999;
+	--opacity: 0.2;
+}
+
+.category-list-item:active{
+	background-color:  #999999;
+	opacity: 0.4;
+}

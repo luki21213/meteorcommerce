@@ -1,0 +1,17 @@
+<template name="categories">
+	<div class="list-group">
+		{{#each categories}}
+		<div class="list-group-item category-list-item">
+			<div class="row-action-primary">
+			<i class="mdi-content-add-circle"></i>
+			</div>
+			<div class="row-content">
+				<div class="least-content">15m</div>
+				<h4 class="list-group-item-heading">{{title}}</h4>
+				<p class="list-group-item-text">There are {{number}} Shoes in this Category.</p>
+			</div>
+		</div>
+		<div class="list-group-separator"></div>
+		{{/each}}
+	</div>
+</template>
