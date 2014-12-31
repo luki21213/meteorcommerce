@@ -1,14 +1,14 @@
 var brandSize = 30;
 var productSize = 100;
 var maxProductQuantity = 20;
+var categorySize = 20;
 Meteor.startup(function() {
-    if (Categories.find().count() === 0) {
-        Categories.insert({
-            title: "Stiefel"
+    if (Categories.find().count() === 0) { 
+        for(var i=0;i<brandSize;i++){
+           Categories.insert({
+            title: "Category"+i
         });
-        Categories.insert({
-            title: "Laufschuh"
-        });
+       }
     }
     if (Brands.find().count() === 0) {
         for(var i=0;i<brandSize;i++){
@@ -22,7 +22,7 @@ Meteor.startup(function() {
          Products.insert({
             title: "Product"+1,
             brand: getBrandID(),
-            category: getCategoryID("Stiefel"),
+            category: getCategoryID(),
             description: "...",
             price: 119.95,
             sex: "male",
@@ -40,7 +40,7 @@ getBrandID = function() {
 };
 getCategoryID = function(name) {
     var obj = Categories.findOne({
-        title: name
+        title: "Category"+getRandomNumber(categorySize)
     });
     return obj._id;
 };
