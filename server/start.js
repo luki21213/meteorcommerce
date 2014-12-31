@@ -1,3 +1,6 @@
+var brandSize = 30;
+var productSize = 100;
+var maxProductQuantity = 20;
 Meteor.startup(function() {
     if (Categories.find().count() === 0) {
         Categories.insert({
@@ -8,76 +11,30 @@ Meteor.startup(function() {
         });
     }
     if (Brands.find().count() === 0) {
-        Brands.insert({
-            title: "Gabor"
+        for(var i=0;i<brandSize;i++){
+           Brands.insert({
+            title: "Brand"+i
         });
-        Brands.insert({
-            title: "Adidas"
-        });
-    }
-    if (Products.find().count() === 0) {
-        Products.insert({
-            title: "Schuh1",
-            brand: getBrandID("Gabor"),
+       }
+   }
+   if (Products.find().count() === 0) {
+    for(var i = 0;i<productSize;i++){
+         Products.insert({
+            title: "Product"+1,
+            brand: getBrandID(),
             category: getCategoryID("Stiefel"),
             description: "...",
-            price: "119,95",
-            sex: "male"
+            price: 119.95,
+            sex: "male",
+            quantity: getRandomNumber(maxProductQuantity)
         });
-        Products.insert({
-            title: "Schuh2",
-            brand: getBrandID("Gabor"),
-            category: getCategoryID("Stiefel"),
-            description: "...",
-            price: "119,95",
-            sex: "male"
-        });
-        Products.insert({
-            title: "Schuh3",
-            brand: getBrandID("Adidas"),
-            category: getCategoryID("Stiefel"),
-            description: "...",
-            price: "119,95",
-            sex: "female"
-        });
-        Products.insert({
-            title: "Schuh4",
-            brand: getBrandID("Adidas"),
-            category: getCategoryID("Stiefel"),
-            description: "...",
-            price: "119,95",
-            sex: "female",
-        });
-        Products.insert({
-            title: "Schuh5",
-            brand: getBrandID("Gabor"),
-            category: getCategoryID("Laufschuh"),
-            description: "...",
-            price: "119,95",
-            sex: "male"
-        });
-        Products.insert({
-            title: "Schuh6",
-            brand: getBrandID("Gabor"),
-            category: getCategoryID("Laufschuh"),
-            description: "...",
-            price: "119,95",
-            sex: "female"
-        });
-        Products.insert({
-            title: "Schuh7",
-            brand: getBrandID("Adidas"),
-            category: getCategoryID("Laufschuh"),
-            description: "...",
-            price: "119,95",
-            sex: "female"
-        });
+     }
     }
 });
 
-getBrandID = function(name) {
+getBrandID = function() {
     var obj = Brands.findOne({
-        title: name
+        title: "Brand"+getRandomNumber(brandSize)
     });
     return obj._id;
 };
@@ -87,3 +44,7 @@ getCategoryID = function(name) {
     });
     return obj._id;
 };
+
+getRandomNumber = function(i){
+    return Math.floor((Math.random() * i)); 
+}
