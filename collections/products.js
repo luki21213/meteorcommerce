@@ -27,6 +27,16 @@ Schemas.Product = new SimpleSchema({
         type: Number,
         label: "Price",
         decimal: true
+    },
+    sex: {
+        type: String,
+        label: "Sex",
+        max: 10
+    },
+    quantity: {
+        type: Number,
+        label: "Quantity",
+        decimal: false
     }
 });
 
