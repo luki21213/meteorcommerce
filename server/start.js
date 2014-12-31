@@ -60,7 +60,7 @@ Meteor.startup(function() {
         });
         Products.insert({
             title: "Schuh7",
-            brand: getBrandID("Aduadas"),
+            brand: getBrandID("Adidas"),
             category: getCategoryID("Laufschuh"),
             description: "...",
             price: "119,95"
