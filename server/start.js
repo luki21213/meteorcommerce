@@ -21,49 +21,56 @@ Meteor.startup(function() {
             brand: getBrandID("Gabor"),
             category: getCategoryID("Stiefel"),
             description: "...",
-            price: "119,95"
+            price: "119,95",
+            sex: "male"
         });
         Products.insert({
             title: "Schuh2",
             brand: getBrandID("Gabor"),
             category: getCategoryID("Stiefel"),
             description: "...",
-            price: "119,95"
+            price: "119,95",
+            sex: "male"
         });
         Products.insert({
             title: "Schuh3",
             brand: getBrandID("Adidas"),
             category: getCategoryID("Stiefel"),
             description: "...",
-            price: "119,95"
+            price: "119,95",
+            sex: "female"
         });
         Products.insert({
             title: "Schuh4",
             brand: getBrandID("Adidas"),
             category: getCategoryID("Stiefel"),
             description: "...",
-            price: "119,95"
+            price: "119,95",
+            sex: "female",
         });
         Products.insert({
             title: "Schuh5",
             brand: getBrandID("Gabor"),
             category: getCategoryID("Laufschuh"),
             description: "...",
-            price: "119,95"
+            price: "119,95",
+            sex: "male"
         });
         Products.insert({
             title: "Schuh6",
             brand: getBrandID("Gabor"),
             category: getCategoryID("Laufschuh"),
             description: "...",
-            price: "119,95"
+            price: "119,95",
+            sex: "female"
         });
         Products.insert({
             title: "Schuh7",
             brand: getBrandID("Adidas"),
             category: getCategoryID("Laufschuh"),
             description: "...",
-            price: "119,95"
+            price: "119,95",
+            sex: "female"
         });
     }
 });
