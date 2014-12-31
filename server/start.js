@@ -20,7 +20,7 @@ Meteor.startup(function() {
    if (Products.find().count() === 0) {
     for(var i = 0;i<productSize;i++){
          Products.insert({
-            title: "Product"+1,
+            title: "Product"+i,
             brand: getBrandID(),
             category: getCategoryID(),
             description: "...",
