@@ -8,7 +8,7 @@ Categories = new Mongo.Collection("categories");
 
 var Schemas = {};
 
-Schemas.Product = new SimpleSchema({
+Schemas.Category = new SimpleSchema({
     title: {
         type: String,
         label: "Title",
@@ -21,7 +21,7 @@ Schemas.Product = new SimpleSchema({
     }
 });
 
-Categories.attachSchema(Schemas.Product);
+Categories.attachSchema(Schemas.Category);
 
 Categories.allow({
 	insert: function (userId, doc) {
