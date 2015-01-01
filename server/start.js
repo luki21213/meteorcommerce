@@ -4,11 +4,42 @@ var maxProductQuantity = 20;
 var categorySize = 20;
 Meteor.startup(function() {
     if (Categories.find().count() === 0) { 
-        for(var i=0;i<categorySize;i++){
-           Categories.insert({
-            title: "Category"+i
+       Categories.insert({
+            title: "Schuh",
+            level: 0
         });
-       }
+       Categories.insert({
+            title: "Hose",
+            level: 0
+        });
+       Categories.insert({
+            title: "Halbschuh",
+            level: 1
+        });
+        Categories.insert({
+            title: "Laufschuh",
+            level: 1
+        });
+        Categories.insert({
+            title: "Stiefel",
+            level: 1
+        });
+        Categories.insert({
+            title: "Damen",
+            level: 2
+        });
+        Categories.insert({
+            title: "Herren",
+            level: 2
+        });     
+        Categories.insert({
+            title: "Winter",
+            level: 2
+        }); 
+        Categories.insert({
+            title: "Sommer",
+            level: 2
+        }); 
     }
     if (Brands.find().count() === 0) {
         for(var i=0;i<brandSize;i++){
@@ -18,17 +49,54 @@ Meteor.startup(function() {
        }
    }
    if (Products.find().count() === 0) {
-    for(var i = 0;i<productSize;i++){
          Products.insert({
-            title: "Product"+i,
+            title: "Schuh1",
             brand: getBrandID(),
-            category: getCategoryID(),
+            category: getCategories(["Schuh","Laufschuh","Damen"]),
             description: "...",
             price: 119.95,
-            sex: "male",
             quantity: getRandomNumber(maxProductQuantity)
         });
-     }
+         Products.insert({
+            title: "EnergyBoost",
+            brand: getBrandID(),
+            category: getCategories(["Schuh","Halbschuh","Sommer","Herren"]),
+            description: "...",
+            price: 119.95,
+            quantity: getRandomNumber(maxProductQuantity)
+        });
+         Products.insert({
+            title: "SlowMeDown",
+            brand: getBrandID(),
+            category: getCategories(["Schuh","Laufschuh","Sommer","Damen"]),
+            description: "...",
+            price: 119.95,
+            quantity: getRandomNumber(maxProductQuantity)
+        });
+         Products.insert({
+            title: "ImBoring",
+            brand: getBrandID(),
+            category: getCategories(["Schuh","Halbschuh","Winter"]),
+            description: "...",
+            price: 119.95,
+            quantity: getRandomNumber(maxProductQuantity)
+        });
+         Products.insert({
+            title: "Haters Gonna Hate",
+            brand: getBrandID(),
+            category: getCategories(["Schuh","Stiefel","Damen"]),
+            description: "...",
+            price: 119.95,
+            quantity: getRandomNumber(maxProductQuantity)
+        });
+         Products.insert({
+            title: "Bitch I'm Fabulous",
+            brand: getBrandID(),
+            category: getCategories(["Schuh","Stiefel","Herren"]),
+            description: "...",
+            price: 119.95,
+            quantity: getRandomNumber(maxProductQuantity)
+        });
     }
 });
 
@@ -38,11 +106,14 @@ getBrandID = function() {
     });
     return obj._id;
 };
-getCategoryID = function(name) {
-    var obj = Categories.findOne({
-        title: "Category"+getRandomNumber(categorySize)
-    });
-    return obj._id;
+getCategories = function(names) {
+    var arr = [];   
+    for(var i = 0;i<names.length;i++){
+        arr.push(Categories.findOne({title: names[i]})._id);
+    }
+    console.log(arr);
+    return arr;
+
 };
 
 getRandomNumber = function(i){

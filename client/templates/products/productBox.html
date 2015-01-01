@@ -1,21 +1,26 @@
 <template name="productBox">
 	<div class="product-box">
 		<div class="product-image">
-		    <a href="#" class="thumbnail">
-		      <img data-src="B25400_01_standard.jpg" alt="..." src="/B25400_01_standard.jpg">
-		    </a>
-	    </div>
-	    <div class="product-name">
-	    	{{title}}
-	    </div>
-	    <div class="product-category">
-	    	{{categoryName}}
-	    </div>
-	    <div class="product-category">
-	    	{{brandName}}
-	    </div>
-	    <div class="product-price">
-	    	€ {{price}}
-	    </div>
-    </div>
+			<a href="#" class="thumbnail">
+				<img data-src="B25400_01_standard.jpg" alt="..." src="/B25400_01_standard.jpg">
+			</a>
+		</div>
+		<div class="product-name">
+			{{title}}
+		</div>
+		<div class="product-category">
+			{{categoryName}}
+		</div>
+		<div class="product-category">
+			{{brandName}}
+		</div>
+		<div class="product-price">
+			€ {{price}}
+		</div>
+		<div class="product-categories">
+			{{#each category}}
+				{{cat.title}}
+			{{/each}}
+		</div>
+	</div>
 </template>

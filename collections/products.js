@@ -1,3 +1,6 @@
+/*
+*   Schema for Product Collection
+*/
 Products = new Mongo.Collection('products');
 
 var Schemas = {};
@@ -14,29 +17,29 @@ Schemas.Product = new SimpleSchema({
         max: 200
     },
     category: {
-        type: String,
-        label: "Category",
-        max: 200
+        type: [String],
+        regEx: SimpleSchema.RegEx.Id,
+        optional: true,
     },
     description: {
         type: String,
         label: "Description",
-        max: 200
+        max: 200,
+        optional: true
     },
     price: {
         type: Number,
         label: "Price",
-        decimal: true
-    },
-    sex: {
-        type: String,
-        label: "Sex",
-        max: 10
+        decimal: true,
+        min: 0,
+        optional: true
     },
     quantity: {
         type: Number,
         label: "Quantity",
-        decimal: false
+        decimal: false,
+        min: 0,
+        optional: true
     }
 });
 

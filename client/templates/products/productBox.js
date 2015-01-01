@@ -10,13 +10,8 @@ Template.productBox.events({
 });
 
 Template.productBox.helpers({
-	categoryName: function() {
-		var cat = Categories.findOne({
-			_id: this.category
-		});
-		if (cat && cat.hasOwnProperty('title')) {
-			return cat.title;
-		}
+	cat: function() {
+		return  Categories.findOne({_id: ""+this+""});
 	},
 	brandName: function() {
 		var brand = Brands.findOne({

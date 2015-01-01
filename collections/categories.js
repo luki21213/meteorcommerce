@@ -1,3 +1,9 @@
+/* 
+*	Categories Schema
+*	A Category with level 0 is e.g a Shoe (Product category)
+*	Level 1 could be male and runningshoe
+*	Levels for tree-structure. You know what i mean :D
+ */
 Categories = new Mongo.Collection("categories");
 
 var Schemas = {};
@@ -7,6 +13,11 @@ Schemas.Product = new SimpleSchema({
         type: String,
         label: "Title",
         max: 200
+    },
+    level: {
+    	type: Number,
+    	label: "Level",
+    	min: 0
     }
 });
 
