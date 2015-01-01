@@ -10,8 +10,15 @@ Template.productBox.events({
 });
 
 Template.productBox.helpers({
-	cat: function() {
-		return  Categories.findOne({_id: ""+this+""});
+	categoryTitles: function() {
+		var catTitleArr = [];
+		_.each(this.category, function(categoryId) {
+			var cat = Categories.findOne({_id: categoryId});
+			if(cat){
+				catTitleArr.push(cat.title);
+			}
+		});
+		return catTitleArr.join(', ');
 	},
 	brandName: function() {
 		var brand = Brands.findOne({
