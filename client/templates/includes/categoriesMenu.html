@@ -1,0 +1,33 @@
+<template name="categoriesMenu">
+	{{#each topLevelCats}}
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{title}} <span class="caret"></span></a>
+		{{#if hasSubCats}}
+			<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+				{{#each subCats}}
+					{{>subcatMenu}}
+				{{/each}}
+			</ul>
+		{{/if}}
+	</li>
+	{{/each}}
+</template>
+
+<template name="subcatMenu">
+	{{#if hasSubCats}}
+		<li class="dropdown-submenu">
+	    	<a tabindex="-1" href="#">{{title}}</a>
+			<ul class="dropdown-menu">
+				{{#each subCats}}
+					{{>subcatMenu}}
+				{{/each}}
+			</ul>
+	    </li>
+	{{else}}
+		<li>
+			<a href="#">
+				{{title}}
+			</a>
+		</li>
+	{{/if}}
+</template>

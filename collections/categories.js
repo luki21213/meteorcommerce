@@ -14,10 +14,13 @@ Schemas.Category = new SimpleSchema({
         label: "Title",
         max: 200
     },
-    level: {
-    	type: Number,
-    	label: "Level",
-    	min: 0
+    topLevel: {
+    	type: Boolean,
+    	optional: true
+    },
+    parentId: {
+    	type: String,
+    	optional: true
     }
 });
 
