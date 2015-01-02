@@ -1,5 +1,7 @@
 <template name="layout">
     {{> navigationTop }}
     {{> yield "tree" }}
-    {{> yield "content"}}
+    <div class="container">
+    	{{> yield "content"}}
+    </div>
 </template>
